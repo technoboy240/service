@@ -29,7 +29,12 @@
     .btn-ghost:hover{color:var(--text);}
     .section{padding:3.5rem 0;border-bottom:0.5px solid var(--border);}
     .section-label{font-size:11px;letter-spacing:3px;text-transform:uppercase;color:var(--muted);margin-bottom:2.5rem;}
+    .section-label--contact{display:flex;align-items:center;gap:0.5rem;}
+    .section-label .wa-icon-inline{width:18px;height:18px;flex-shrink:0;}
     .services-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1px;border:0.5px solid var(--border);}
+    @media (min-width:641px){
+      .services-grid .service-card:last-child{grid-column:1 / -1;}
+    }
     .service-card{padding:1.5rem;background:var(--surface);transition:background 0.2s;}
     .service-card:hover{background:var(--surface2);}
     .service-num{font-size:11px;color:var(--muted);margin-bottom:0.75rem;letter-spacing:1px;}
@@ -40,8 +45,10 @@
     .contact-row{display:flex;gap:0.75rem;flex-wrap:wrap;margin-top:2rem;}
     .contact-card{display:flex;align-items:center;gap:10px;padding:12px 18px;min-height:44px;border:0.5px solid var(--border);border-radius:2px;text-decoration:none;color:var(--muted);font-size:13px;transition:all 0.2s;background:var(--surface);}
     .contact-card:hover{color:var(--text);border-color:var(--border2);}
+    .contact-card--wa{border-color:rgba(37,211,102,0.35);}
+    .contact-card--wa:hover{border-color:#25D366;}
     .contact-icon{width:16px;height:16px;flex-shrink:0;}
-    .wa-icon{width:18px;height:18px;flex-shrink:0;}
+    .wa-icon{width:22px;height:22px;flex-shrink:0;}
     .qr-section{padding:3.5rem 0;border-bottom:0.5px solid var(--border);}
     .qr-wrap{display:flex;gap:2.5rem;align-items:flex-start;flex-wrap:wrap;margin-top:2rem;}
     .qr-box{background:white;padding:12px;border-radius:2px;flex-shrink:0;}
@@ -130,14 +137,20 @@
     </section>
 
     <section class="contact-section" id="contacto">
-      <p class="section-label">📬 Contacto</p>
+      <p class="section-label section-label--contact">
+        <svg class="wa-icon-inline" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <circle cx="16" cy="16" r="16" fill="#25D366"/>
+          <path d="M22.5 19.4c-.3-.1-1.8-.9-2.1-1-.3-.1-.5-.1-.7.1-.2.2-.8 1-.9 1.2-.2.2-.3.2-.6.1-.3-.2-1.3-.5-2.5-1.5-.9-.8-1.5-1.8-1.7-2.1-.2-.3 0-.5.1-.6.1-.1.3-.3.4-.4.1-.1.2-.3.3-.4.1-.2 0-.3 0-.5-.1-.1-.7-1.7-1-2.3-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.4s1 2.8 1.2 3c.1.1 2 3.1 4.9 4.3.7.3 1.2.5 1.6.6.7.2 1.3.2 1.8.1.5-.1 1.8-.7 2-1.4.2-.7.2-1.3.2-1.4-.1-.1-.3-.2-.6-.3z" fill="white"/>
+        </svg>
+        Contacto
+      </p>
       <div class="contact-row">
-        <a class="contact-card" href="https://wa.me/5491169306542" target="_blank" rel="noopener noreferrer">
+        <a class="contact-card contact-card--wa" href="https://wa.me/5491169306542" target="_blank" rel="noopener noreferrer">
           <svg class="wa-icon" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
             <circle cx="16" cy="16" r="16" fill="#25D366"/>
             <path d="M22.5 19.4c-.3-.1-1.8-.9-2.1-1-.3-.1-.5-.1-.7.1-.2.2-.8 1-.9 1.2-.2.2-.3.2-.6.1-.3-.2-1.3-.5-2.5-1.5-.9-.8-1.5-1.8-1.7-2.1-.2-.3 0-.5.1-.6.1-.1.3-.3.4-.4.1-.1.2-.3.3-.4.1-.2 0-.3 0-.5-.1-.1-.7-1.7-1-2.3-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.4s1 2.8 1.2 3c.1.1 2 3.1 4.9 4.3.7.3 1.2.5 1.6.6.7.2 1.3.2 1.8.1.5-.1 1.8-.7 2-1.4.2-.7.2-1.3.2-1.4-.1-.1-.3-.2-.6-.3z" fill="white"/>
           </svg>
-          +54 9 11 6930-6542
+          <span>+54 9 11 6930-6542</span>
         </a>
         <a class="contact-card" href="https://instagram.com/agumsuarez" target="_blank" rel="noopener noreferrer">
           <svg class="contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
