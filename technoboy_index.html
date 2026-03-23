@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Technoboy</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:sans-serif;background:#0a0a0a;color:#fff}
+.page{max-width:680px;margin:auto;padding:20px}
+nav{display:flex;flex-wrap:wrap;justify-content:space-between;margin-bottom:20px}
+.services-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.service-card{background:#111;padding:15px}
+@media(max-width:768px){
+.services-grid{grid-template-columns:1fr}
+nav{flex-direction:column}
+}
+</style>
+</head>
+<body>
+<nav>
+<span>Technoboy</span>
+<div>
+<a href="#servicios">Servicios</a>
+<a href="#contacto">Contacto</a>
+</div>
+</nav>
+
+<div class="page">
+<h1>Soluciones tech</h1>
+
+<div class="services-grid">
+<div class="service-card">Apps</div>
+<div class="service-card">Windows</div>
+<div class="service-card">Limpieza</div>
+<div class="service-card">IT</div>
+</div>
+
+</div>
+</body>
+</html>
