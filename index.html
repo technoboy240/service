@@ -12,11 +12,16 @@
     body{background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;font-size:16px;line-height:1.6;overflow-x:hidden;}
     img,svg{max-width:100%;height:auto;}
     .page{max-width:680px;margin:0 auto;padding:0 1.5rem;}
-    nav{display:flex;justify-content:space-between;align-items:center;padding:2rem 1.5rem 0;max-width:680px;margin:0 auto;}
+    nav{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem;padding:2rem 1.5rem 0;max-width:680px;margin:0 auto;}
+    .nav-inner{display:flex;align-items:center;gap:1.25rem;flex-wrap:wrap;margin-left:auto;}
     .logo{font-family:'DM Serif Display',serif;font-size:22px;letter-spacing:-0.5px;color:var(--text);}
-    .nav-links{display:flex;gap:1.5rem;}
+    .nav-links{display:flex;gap:1.5rem;align-items:center;}
     .nav-links a{font-size:13px;color:var(--muted);text-decoration:none;transition:color 0.2s;}
     .nav-links a:hover{color:var(--text);}
+    .lang-switch{display:inline-flex;border:0.5px solid var(--border);border-radius:2px;overflow:hidden;}
+    .lang-switch button{font-family:inherit;font-size:11px;letter-spacing:0.5px;padding:6px 10px;border:none;background:transparent;color:var(--muted);cursor:pointer;transition:background 0.2s,color 0.2s;}
+    .lang-switch button:hover{color:var(--text);}
+    .lang-switch button[aria-pressed="true"]{background:var(--surface2);color:var(--text);}
     .hero{padding:5rem 0 3rem;border-bottom:0.5px solid var(--border);}
     .eyebrow{font-size:11px;letter-spacing:3px;text-transform:uppercase;color:var(--muted);margin-bottom:1.5rem;}
     .hero h1{font-family:'DM Serif Display',serif;font-size:clamp(32px,8vw,56px);line-height:1.1;letter-spacing:-1px;margin-bottom:1.5rem;}
@@ -68,6 +73,7 @@
     @media (max-width:480px){
       .page{padding:0 1rem;}
       nav{padding:1rem 1rem 0;}
+      .nav-inner{width:100%;justify-content:space-between;}
       .cta-row{flex-direction:column;align-items:stretch;}
       .btn-primary,.btn-ghost{width:100%;}
       .contact-row{flex-direction:column;align-items:stretch;}
@@ -83,55 +89,62 @@
 <body>
   <nav>
     <span class="logo">Technoboy</span>
-    <div class="nav-links">
-      <a href="#servicios">Servicios</a>
-      <a href="#contacto">Contacto</a>
+    <div class="nav-inner">
+      <div class="lang-switch" role="group" aria-label="Language">
+        <button type="button" data-set-lang="es" aria-pressed="true">ES</button>
+        <button type="button" data-set-lang="en" aria-pressed="false">EN</button>
+        <button type="button" data-set-lang="pt-BR" aria-pressed="false">PT</button>
+      </div>
+      <div class="nav-links">
+        <a href="#servicios" data-i18n="navServices">Servicios</a>
+        <a href="#contacto" data-i18n="navContact">Contacto</a>
+      </div>
     </div>
   </nav>
 
   <div class="page">
     <section class="hero">
-      <p class="eyebrow">⚡ Servicios tecnológicos</p>
-      <h1>Soluciones tech<br><em>a medida.</em></h1>
-      <p>Desarrollo de apps, soporte técnico, instalación de sistemas y mucho más. Todo lo que tu negocio necesita en un solo lugar.</p>
+      <p class="eyebrow" data-i18n="heroEyebrow">⚡ Servicios tecnológicos</p>
+      <h1><span data-i18n="heroH1a">Soluciones tech</span><br><em data-i18n="heroH1b">a medida.</em></h1>
+      <p data-i18n="heroLead">Desarrollo de apps, soporte técnico, instalación de sistemas y mucho más. Todo lo que tu negocio necesita en un solo lugar.</p>
       <div class="cta-row">
-        <a class="btn-primary" href="https://wa.me/5491169306542">💬 Contactar por WhatsApp</a>
-        <a class="btn-ghost" href="https://github.com/technoboy240/service" target="_blank" rel="noopener noreferrer">Ver en GitHub</a>
+        <a class="btn-primary" id="link-wa-hero" href="#">💬 <span data-i18n="ctaWa">Contactar por WhatsApp</span></a>
+        <a class="btn-ghost" href="https://github.com/technoboy240/service" target="_blank" rel="noopener noreferrer" data-i18n="ctaGh">Ver en GitHub</a>
       </div>
     </section>
 
     <section class="section" id="servicios">
-      <p class="section-label">🛠️ Servicios</p>
+      <p class="section-label" data-i18n="servicesLabel">🛠️ Servicios</p>
       <div class="services-grid">
         <div class="service-card">
           <span class="service-emoji">📱</span>
           <p class="service-num">01</p>
-          <h3>Desarrollo de apps</h3>
-          <p>Aplicaciones a medida: web, mobile, desktop. Gestión de clientes, inventario, herramientas propias y más.</p>
+          <h3 data-i18n="s1t">Desarrollo de apps</h3>
+          <p data-i18n="s1d">Aplicaciones a medida: web, mobile, desktop. Gestión de clientes, inventario, herramientas propias y más.</p>
         </div>
         <div class="service-card">
           <span class="service-emoji">🪟</span>
           <p class="service-num">02</p>
-          <h3>Instalación de Windows</h3>
-          <p>Instalación limpia, actualizaciones del sistema y configuración completa del entorno.</p>
+          <h3 data-i18n="s2t">Instalación de Windows</h3>
+          <p data-i18n="s2d">Instalación limpia, actualizaciones del sistema y configuración completa del entorno.</p>
         </div>
         <div class="service-card">
           <span class="service-emoji">🧹</span>
           <p class="service-num">03</p>
-          <h3>Limpieza de sistemas</h3>
-          <p>Optimización, eliminación de malware y mejora del rendimiento de tu equipo.</p>
+          <h3 data-i18n="s3t">Limpieza de sistemas</h3>
+          <p data-i18n="s3d">Optimización, eliminación de malware y mejora del rendimiento de tu equipo.</p>
         </div>
         <div class="service-card">
           <span class="service-emoji">⚙️</span>
           <p class="service-num">04</p>
-          <h3>Administración IT</h3>
-          <p>Gestión y mejora de sistemas existentes. Soporte continuo y mantenimiento preventivo.</p>
+          <h3 data-i18n="s4t">Administración IT</h3>
+          <p data-i18n="s4d">Gestión y mejora de sistemas existentes. Soporte continuo y mantenimiento preventivo.</p>
         </div>
         <div class="service-card">
           <span class="service-emoji">🤖</span>
           <p class="service-num">05</p>
-          <h3>Soluciones con IA</h3>
-          <p>Automatizaciones, chatbots, optimización de procesos y herramientas con inteligencia artificial aplicada a tu negocio.</p>
+          <h3 data-i18n="s5t">Soluciones con IA</h3>
+          <p data-i18n="s5d">Automatizaciones, chatbots, optimización de procesos y herramientas con inteligencia artificial aplicada a tu negocio.</p>
         </div>
       </div>
     </section>
@@ -142,10 +155,10 @@
           <circle cx="16" cy="16" r="16" fill="#25D366"/>
           <path d="M22.5 19.4c-.3-.1-1.8-.9-2.1-1-.3-.1-.5-.1-.7.1-.2.2-.8 1-.9 1.2-.2.2-.3.2-.6.1-.3-.2-1.3-.5-2.5-1.5-.9-.8-1.5-1.8-1.7-2.1-.2-.3 0-.5.1-.6.1-.1.3-.3.4-.4.1-.1.2-.3.3-.4.1-.2 0-.3 0-.5-.1-.1-.7-1.7-1-2.3-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.4s1 2.8 1.2 3c.1.1 2 3.1 4.9 4.3.7.3 1.2.5 1.6.6.7.2 1.3.2 1.8.1.5-.1 1.8-.7 2-1.4.2-.7.2-1.3.2-1.4-.1-.1-.3-.2-.6-.3z" fill="white"/>
         </svg>
-        Contacto
+        <span data-i18n="contactTitle">Contacto</span>
       </p>
       <div class="contact-row">
-        <a class="contact-card contact-card--wa" href="https://wa.me/5491169306542" target="_blank" rel="noopener noreferrer">
+        <a class="contact-card contact-card--wa" id="link-wa-tel" href="#" target="_blank" rel="noopener noreferrer">
           <svg class="wa-icon" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
             <circle cx="16" cy="16" r="16" fill="#25D366"/>
             <path d="M22.5 19.4c-.3-.1-1.8-.9-2.1-1-.3-.1-.5-.1-.7.1-.2.2-.8 1-.9 1.2-.2.2-.3.2-.6.1-.3-.2-1.3-.5-2.5-1.5-.9-.8-1.5-1.8-1.7-2.1-.2-.3 0-.5.1-.6.1-.1.3-.3.4-.4.1-.1.2-.3.3-.4.1-.2 0-.3 0-.5-.1-.1-.7-1.7-1-2.3-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.4s1 2.8 1.2 3c.1.1 2 3.1 4.9 4.3.7.3 1.2.5 1.6.6.7.2 1.3.2 1.8.1.5-.1 1.8-.7 2-1.4.2-.7.2-1.3.2-1.4-.1-.1-.3-.2-.6-.3z" fill="white"/>
@@ -168,13 +181,13 @@
     </section>
 
     <section class="qr-section">
-      <p class="section-label">📲 Contacto rápido</p>
+      <p class="section-label" data-i18n="qrLabel">📲 Contacto rápido</p>
       <div class="qr-wrap">
         <div class="qr-box" id="qr-container"></div>
         <div class="qr-info">
-          <h3>Escaneá para escribirme</h3>
-          <p>El QR te lleva directo a WhatsApp. Imprimilo en tarjetas o carteles para que los clientes te contacten al instante.</p>
-          <span class="qr-badge">💬 WhatsApp directo</span>
+          <h3 data-i18n="qrH">Escaneá para escribirme</h3>
+          <p data-i18n="qrP">El QR te lleva directo a WhatsApp. Imprimilo en tarjetas o carteles para que los clientes te contacten al instante.</p>
+          <span class="qr-badge" data-i18n="qrBadge">💬 WhatsApp directo</span>
         </div>
       </div>
     </section>
@@ -182,19 +195,163 @@
 
   <footer>
     <span class="footer-logo">Technoboy</span>
-    <span class="footer-note">🛠️ Diseño y desarrollo · 2025</span>
+    <span class="footer-note" data-i18n="footerNote">🛠️ Diseño y desarrollo · 2025</span>
   </footer>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
   <script>
-    new QRCode(document.getElementById('qr-container'), {
-      text: 'https://wa.me/5491169306542',
+(function(){
+  var PHONE = '5491169306542';
+  var I18N = {
+    es: {
+      htmlLang: 'es',
+      navServices: 'Servicios',
+      navContact: 'Contacto',
+      heroEyebrow: '⚡ Servicios tecnológicos',
+      heroH1a: 'Soluciones tech',
+      heroH1b: 'a medida.',
+      heroLead: 'Desarrollo de apps, soporte técnico, instalación de sistemas y mucho más. Todo lo que tu negocio necesita en un solo lugar.',
+      ctaWa: 'Contactar por WhatsApp',
+      ctaGh: 'Ver en GitHub',
+      servicesLabel: '🛠️ Servicios',
+      s1t: 'Desarrollo de apps',
+      s1d: 'Aplicaciones a medida: web, mobile, desktop. Gestión de clientes, inventario, herramientas propias y más.',
+      s2t: 'Instalación de Windows',
+      s2d: 'Instalación limpia, actualizaciones del sistema y configuración completa del entorno.',
+      s3t: 'Limpieza de sistemas',
+      s3d: 'Optimización, eliminación de malware y mejora del rendimiento de tu equipo.',
+      s4t: 'Administración IT',
+      s4d: 'Gestión y mejora de sistemas existentes. Soporte continuo y mantenimiento preventivo.',
+      s5t: 'Soluciones con IA',
+      s5d: 'Automatizaciones, chatbots, optimización de procesos y herramientas con inteligencia artificial aplicada a tu negocio.',
+      contactTitle: 'Contacto',
+      qrLabel: '📲 Contacto rápido',
+      qrH: 'Escaneá para escribirme',
+      qrP: 'El QR te lleva directo a WhatsApp. Imprimilo en tarjetas o carteles para que los clientes te contacten al instante.',
+      qrBadge: '💬 WhatsApp directo',
+      footerNote: '🛠️ Diseño y desarrollo · 2025',
+      waMessage: 'Hola Agustín, te contacto por tus servicios.'
+    },
+    en: {
+      htmlLang: 'en',
+      navServices: 'Services',
+      navContact: 'Contact',
+      heroEyebrow: '⚡ Technology services',
+      heroH1a: 'Tech solutions',
+      heroH1b: 'tailored to you.',
+      heroLead: 'App development, technical support, system installation, and more. Everything your business needs in one place.',
+      ctaWa: 'Contact on WhatsApp',
+      ctaGh: 'View on GitHub',
+      servicesLabel: '🛠️ Services',
+      s1t: 'App development',
+      s1d: 'Custom apps: web, mobile, and desktop. CRM, inventory, internal tools, and more.',
+      s2t: 'Windows installation',
+      s2d: 'Clean installs, system updates, and full environment setup.',
+      s3t: 'System cleanup',
+      s3d: 'Optimization, malware removal, and better performance for your machine.',
+      s4t: 'IT administration',
+      s4d: 'Managing and improving existing systems. Ongoing support and preventive maintenance.',
+      s5t: 'AI solutions',
+      s5d: 'Automation, chatbots, process optimization, and AI tools for your business.',
+      contactTitle: 'Contact',
+      qrLabel: '📲 Quick contact',
+      qrH: 'Scan to message me',
+      qrP: 'The QR opens WhatsApp directly. Print it on cards or posters so clients can reach you instantly.',
+      qrBadge: '💬 Direct WhatsApp',
+      footerNote: '🛠️ Design & development · 2025',
+      waMessage: 'Hi Agustín, I\'m contacting you about your services.'
+    },
+    'pt-BR': {
+      htmlLang: 'pt-BR',
+      navServices: 'Serviços',
+      navContact: 'Contato',
+      heroEyebrow: '⚡ Serviços tecnológicos',
+      heroH1a: 'Soluções tech',
+      heroH1b: 'sob medida.',
+      heroLead: 'Desenvolvimento de apps, suporte técnico, instalação de sistemas e muito mais. Tudo o que o seu negócio precisa em um só lugar.',
+      ctaWa: 'Falar no WhatsApp',
+      ctaGh: 'Ver no GitHub',
+      servicesLabel: '🛠️ Serviços',
+      s1t: 'Desenvolvimento de apps',
+      s1d: 'Aplicativos sob medida: web, mobile e desktop. Gestão de clientes, estoque, ferramentas internas e mais.',
+      s2t: 'Instalação do Windows',
+      s2d: 'Instalação limpa, atualizações do sistema e configuração completa do ambiente.',
+      s3t: 'Limpeza de sistemas',
+      s3d: 'Otimização, remoção de malware e melhor desempenho do seu equipamento.',
+      s4t: 'Administração de TI',
+      s4d: 'Gestão e melhoria de sistemas existentes. Suporte contínuo e manutenção preventiva.',
+      s5t: 'Soluções com IA',
+      s5d: 'Automações, chatbots, otimização de processos e ferramentas de IA para o seu negócio.',
+      contactTitle: 'Contato',
+      qrLabel: '📲 Contato rápido',
+      qrH: 'Escaneie para falar comigo',
+      qrP: 'O QR abre o WhatsApp direto. Imprima em cartões ou cartazes para os clientes entrarem em contato na hora.',
+      qrBadge: '💬 WhatsApp direto',
+      footerNote: '🛠️ Design e desenvolvimento · 2025',
+      waMessage: 'Olá Agustín, entro em contato pelos seus serviços.'
+    }
+  };
+
+  function waUrl(lang) {
+    var msg = I18N[lang].waMessage;
+    return 'https://wa.me/' + PHONE + '?text=' + encodeURIComponent(msg);
+  }
+
+  var qrEl = document.getElementById('qr-container');
+  function buildQR(lang) {
+    if (!qrEl || typeof QRCode === 'undefined') return;
+    qrEl.innerHTML = '';
+    new QRCode(qrEl, {
+      text: waUrl(lang),
       width: 140,
       height: 140,
       colorDark: '#0a0a0a',
       colorLight: '#ffffff',
       correctLevel: QRCode.CorrectLevel.H
     });
+  }
+
+  function applyLang(lang) {
+    if (!I18N[lang]) lang = 'es';
+    var dict = I18N[lang];
+    document.documentElement.lang = dict.htmlLang;
+
+    document.querySelectorAll('[data-i18n]').forEach(function(el) {
+      var key = el.getAttribute('data-i18n');
+      if (dict[key] !== undefined) el.textContent = dict[key];
+    });
+
+    var hero = document.getElementById('link-wa-hero');
+    var tel = document.getElementById('link-wa-tel');
+    var u = waUrl(lang);
+    if (hero) hero.href = u;
+    if (tel) tel.href = u;
+
+    buildQR(lang);
+
+    document.querySelectorAll('[data-set-lang]').forEach(function(btn) {
+      var on = btn.getAttribute('data-set-lang') === lang;
+      btn.setAttribute('aria-pressed', on ? 'true' : 'false');
+    });
+
+    try { localStorage.setItem('technoboy-lang', lang); } catch (e) {}
+  }
+
+  var saved = (function(){ try { return localStorage.getItem('technoboy-lang'); } catch (e) { return null; } })();
+  var initial = saved && I18N[saved] ? saved : 'es';
+
+  document.querySelectorAll('[data-set-lang]').forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      applyLang(btn.getAttribute('data-set-lang'));
+    });
+  });
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', function() { applyLang(initial); });
+  } else {
+    applyLang(initial);
+  }
+})();
   </script>
 </body>
 </html>
