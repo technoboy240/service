@@ -3,6 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Technoboy — Webs para negocios locales, soporte técnico, Windows/Linux, Office y automatizaciones.">
   <title>Technoboy — Servicios</title>
   <style>
     @import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500&display=swap');
@@ -22,11 +23,12 @@
     .lang-switch button{font-family:inherit;font-size:11px;letter-spacing:0.5px;padding:6px 10px;border:none;background:transparent;color:var(--muted);cursor:pointer;transition:background 0.2s,color 0.2s;}
     .lang-switch button:hover{color:var(--text);}
     .lang-switch button[aria-pressed="true"]{background:var(--surface2);color:var(--text);}
+    .lang-switch button:focus-visible,.nav-links a:focus-visible,.btn-primary:focus-visible,.btn-ghost:focus-visible,.contact-card:focus-visible{outline:2px solid var(--border2);outline-offset:2px;}
     .hero{padding:5rem 0 3rem;border-bottom:0.5px solid var(--border);}
     .eyebrow{font-size:11px;letter-spacing:3px;text-transform:uppercase;color:var(--muted);margin-bottom:1.5rem;}
     .hero h1{font-family:'DM Serif Display',serif;font-size:clamp(32px,8vw,56px);line-height:1.1;letter-spacing:-1px;margin-bottom:1.5rem;}
     .hero h1 em{font-style:italic;color:var(--muted);}
-    .hero p{font-size:16px;color:var(--muted);font-weight:300;max-width:480px;line-height:1.7;margin-bottom:2.5rem;}
+    .hero p{font-size:16px;color:var(--muted);font-weight:300;max-width:520px;line-height:1.7;margin-bottom:2.5rem;}
     .cta-row{display:flex;gap:1rem;flex-wrap:wrap;align-items:center;}
     .btn-primary{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:12px 24px;min-height:44px;background:var(--text);color:#0a0a0a;border-radius:2px;text-decoration:none;font-size:14px;font-weight:500;transition:opacity 0.2s;}
     .btn-primary:hover{opacity:0.85;}
@@ -34,8 +36,9 @@
     .btn-ghost:hover{color:var(--text);}
     .section{padding:3.5rem 0;border-bottom:0.5px solid var(--border);}
     .section-label{font-size:11px;letter-spacing:3px;text-transform:uppercase;color:var(--muted);margin-bottom:2.5rem;}
-    .section-label--contact{display:flex;align-items:center;gap:0.5rem;}
+    .section-label--contact{display:flex;align-items:center;gap:0.5rem;margin-bottom:1rem;}
     .section-label .wa-icon-inline{width:18px;height:18px;flex-shrink:0;}
+    .contact-hint{font-size:13px;color:var(--muted);line-height:1.55;max-width:480px;font-weight:300;margin-bottom:1.75rem;}
     .services-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1px;border:0.5px solid var(--border);}
     @media (min-width:641px){
       .services-grid .service-card:last-child{grid-column:1 / -1;}
@@ -47,7 +50,7 @@
     .service-card p{font-size:13px;color:var(--muted);line-height:1.6;}
     .service-emoji{font-size:22px;margin-bottom:0.75rem;display:block;line-height:1;}
     .contact-section{padding:3.5rem 0;border-bottom:0.5px solid var(--border);}
-    .contact-row{display:flex;gap:0.75rem;flex-wrap:wrap;margin-top:2rem;}
+    .contact-row{display:flex;gap:0.75rem;flex-wrap:wrap;margin-top:0;}
     .contact-card{display:flex;align-items:center;gap:10px;padding:12px 18px;min-height:44px;border:0.5px solid var(--border);border-radius:2px;text-decoration:none;color:var(--muted);font-size:13px;transition:all 0.2s;background:var(--surface);}
     .contact-card:hover{color:var(--text);border-color:var(--border2);}
     .contact-card--wa{border-color:rgba(37,211,102,0.35);}
@@ -104,9 +107,9 @@
 
   <div class="page">
     <section class="hero">
-      <p class="eyebrow" data-i18n="heroEyebrow">⚡ Servicios tecnológicos</p>
+      <p class="eyebrow" data-i18n="heroEyebrow">⚡ Web y soporte para negocios locales</p>
       <h1><span data-i18n="heroH1a">Soluciones tech</span><br><em data-i18n="heroH1b">a medida.</em></h1>
-      <p data-i18n="heroLead">Desarrollo de páginas web o web apps, soporte técnico, instalación de sistemas y mucho más. Todo lo que tu negocio necesita en un solo lugar.</p>
+      <p data-i18n="heroLead">Ayudo a restaurantes, comercios, hostels y creadores a tener presencia clara en la web y equipos que rindan bien. Más consultas por WhatsApp, menos trabas técnicas: webs a medida, software del día a día y automatizaciones cuando hacen falta.</p>
       <div class="cta-row">
         <a class="btn-primary" id="link-wa-hero" href="#">💬 <span data-i18n="ctaWa">Contactar por WhatsApp</span></a>
         <a class="btn-ghost" href="https://github.com/technoboy240/service" target="_blank" rel="noopener noreferrer" data-i18n="ctaGh">Ver en GitHub</a>
@@ -120,31 +123,31 @@
           <span class="service-emoji">📱</span>
           <p class="service-num">01</p>
           <h3 data-i18n="s1t">Desarrollo de páginas web o web apps</h3>
-          <p data-i18n="s1d">Sitios y aplicaciones web a medida: landings, paneles, tiendas online, herramientas internas y más.</p>
+          <p data-i18n="s1d">Sitios y aplicaciones web a medida: que te encuentren y te escriban por WhatsApp sin complicarte con la parte técnica.</p>
         </div>
         <div class="service-card">
           <span class="service-emoji">🪟</span>
           <p class="service-num">02</p>
-          <h3 data-i18n="s2t">Instalación de Windows</h3>
-          <p data-i18n="s2d">Instalación limpia, actualizaciones del sistema y configuración completa del entorno.</p>
+          <h3 data-i18n="s2t">Windows / Linux y Office</h3>
+          <p data-i18n="s2d">Instalación de Windows y Linux, paquetes de Microsoft Office y más. Actualizaciones y configuración del entorno.</p>
         </div>
         <div class="service-card">
           <span class="service-emoji">🧹</span>
           <p class="service-num">03</p>
           <h3 data-i18n="s3t">Limpieza de sistemas</h3>
-          <p data-i18n="s3d">Optimización, eliminación de malware y mejora del rendimiento de tu equipo.</p>
+          <p data-i18n="s3d">Optimización y limpieza para que tu PC aguante el trabajo diario del negocio o del estudio.</p>
         </div>
         <div class="service-card">
           <span class="service-emoji">⚙️</span>
           <p class="service-num">04</p>
           <h3 data-i18n="s4t">Administración IT</h3>
-          <p data-i18n="s4d">Gestión y mejora de sistemas existentes. Soporte continuo y mantenimiento preventivo.</p>
+          <p data-i18n="s4d">Soporte y mantenimiento para que tu negocio no se detenga por problemas de sistema.</p>
         </div>
         <div class="service-card">
           <span class="service-emoji">🤖</span>
           <p class="service-num">05</p>
           <h3 data-i18n="s5t">Soluciones con IA</h3>
-          <p data-i18n="s5d">Automatizaciones, chatbots, optimización de procesos y herramientas con inteligencia artificial aplicada a tu negocio.</p>
+          <p data-i18n="s5d">Automatizaciones y chatbots para responder lo repetitivo y ganar tiempo.</p>
         </div>
       </div>
     </section>
@@ -157,6 +160,7 @@
         </svg>
         <span data-i18n="contactTitle">Contacto</span>
       </p>
+      <p class="contact-hint" data-i18n="contactHint">En el primer mensaje indicá el nombre de tu negocio y la zona; si querés, qué necesitás.</p>
       <div class="contact-row">
         <a class="contact-card contact-card--wa" id="link-wa-tel" href="#" target="_blank" rel="noopener noreferrer">
           <svg class="wa-icon" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
@@ -207,24 +211,25 @@
       htmlLang: 'es',
       navServices: 'Servicios',
       navContact: 'Contacto',
-      heroEyebrow: '⚡ Servicios tecnológicos',
+      heroEyebrow: '⚡ Web y soporte para negocios locales',
       heroH1a: 'Soluciones tech',
       heroH1b: 'a medida.',
-      heroLead: 'Desarrollo de páginas web o web apps, soporte técnico, instalación de sistemas y mucho más. Todo lo que tu negocio necesita en un solo lugar.',
+      heroLead: 'Ayudo a restaurantes, comercios, hostels y creadores a tener presencia clara en la web y equipos que rindan bien. Más consultas por WhatsApp, menos trabas técnicas: webs a medida, software del día a día y automatizaciones cuando hacen falta.',
       ctaWa: 'Contactar por WhatsApp',
       ctaGh: 'Ver en GitHub',
       servicesLabel: '🛠️ Servicios',
       s1t: 'Desarrollo de páginas web o web apps',
-      s1d: 'Sitios y aplicaciones web a medida: landings, paneles, tiendas online, herramientas internas y más.',
-      s2t: 'Instalación de Windows',
-      s2d: 'Instalación limpia, actualizaciones del sistema y configuración completa del entorno.',
+      s1d: 'Sitios y aplicaciones web a medida: que te encuentren y te escriban por WhatsApp sin complicarte con la parte técnica.',
+      s2t: 'Windows / Linux y Office',
+      s2d: 'Instalación de Windows y Linux, paquetes de Microsoft Office y más. Actualizaciones y configuración del entorno.',
       s3t: 'Limpieza de sistemas',
-      s3d: 'Optimización, eliminación de malware y mejora del rendimiento de tu equipo.',
+      s3d: 'Optimización y limpieza para que tu PC aguante el trabajo diario del negocio o del estudio.',
       s4t: 'Administración IT',
-      s4d: 'Gestión y mejora de sistemas existentes. Soporte continuo y mantenimiento preventivo.',
+      s4d: 'Soporte y mantenimiento para que tu negocio no se detenga por problemas de sistema.',
       s5t: 'Soluciones con IA',
-      s5d: 'Automatizaciones, chatbots, optimización de procesos y herramientas con inteligencia artificial aplicada a tu negocio.',
+      s5d: 'Automatizaciones y chatbots para responder lo repetitivo y ganar tiempo.',
       contactTitle: 'Contacto',
+      contactHint: 'En el primer mensaje indicá el nombre de tu negocio y la zona; si querés, qué necesitás.',
       qrLabel: '📲 Contacto rápido',
       qrH: 'Escaneá para escribirme',
       qrP: 'El QR te lleva directo a WhatsApp. Imprimilo en tarjetas o carteles para que los clientes te contacten al instante.',
@@ -236,24 +241,25 @@
       htmlLang: 'en',
       navServices: 'Services',
       navContact: 'Contact',
-      heroEyebrow: '⚡ Technology services',
+      heroEyebrow: '⚡ Web & support for local businesses',
       heroH1a: 'Tech solutions',
       heroH1b: 'tailored to you.',
-      heroLead: 'Website and web app development, technical support, system installation, and more. Everything your business needs in one place.',
+      heroLead: 'I help restaurants, shops, hostels, and creators get a clear online presence and computers that keep up. More inquiries, fewer tech headaches: custom websites, everyday software, and light automation when it makes sense.',
       ctaWa: 'Contact on WhatsApp',
       ctaGh: 'View on GitHub',
       servicesLabel: '🛠️ Services',
       s1t: 'Websites & web apps',
-      s1d: 'Custom sites and web apps: landing pages, dashboards, online stores, internal tools, and more.',
-      s2t: 'Windows installation',
-      s2d: 'Clean installs, system updates, and full environment setup.',
+      s1d: 'Custom sites and web apps: be findable and get WhatsApp messages without sweating the tech.',
+      s2t: 'Windows / Linux & Office',
+      s2d: 'Windows and Linux setup, Microsoft Office suites, and more. Updates and full environment configuration.',
       s3t: 'System cleanup',
-      s3d: 'Optimization, malware removal, and better performance for your machine.',
+      s3d: 'Tuning and cleanup so your PC keeps up with day-to-day work.',
       s4t: 'IT administration',
-      s4d: 'Managing and improving existing systems. Ongoing support and preventive maintenance.',
+      s4d: 'Support and maintenance so your business does not stop because of system issues.',
       s5t: 'AI solutions',
-      s5d: 'Automation, chatbots, process optimization, and AI tools for your business.',
+      s5d: 'Automations and chatbots for repetitive questions—more time for what matters.',
       contactTitle: 'Contact',
+      contactHint: 'In your first message, include your business name and area, plus what you need.',
       qrLabel: '📲 Quick contact',
       qrH: 'Scan to message me',
       qrP: 'The QR opens WhatsApp directly. Print it on cards or posters so clients can reach you instantly.',
@@ -265,24 +271,25 @@
       htmlLang: 'pt-BR',
       navServices: 'Serviços',
       navContact: 'Contato',
-      heroEyebrow: '⚡ Serviços tecnológicos',
+      heroEyebrow: '⚡ Web e suporte para negócios locais',
       heroH1a: 'Soluções tech',
       heroH1b: 'sob medida.',
-      heroLead: 'Desenvolvimento de páginas web ou web apps, suporte técnico, instalação de sistemas e muito mais. Tudo o que o seu negócio precisa em um só lugar.',
+      heroLead: 'Ajudo restaurantes, lojas, hostels e criadores a ter presença clara na web e equipamentos confiáveis. Mais contatos, menos dor de cabeça técnica: sites sob medida, software do dia a dia e automações quando fizer sentido.',
       ctaWa: 'Falar no WhatsApp',
       ctaGh: 'Ver no GitHub',
       servicesLabel: '🛠️ Serviços',
       s1t: 'Páginas web ou web apps',
-      s1d: 'Sites e aplicações web sob medida: landings, painéis, lojas online, ferramentas internas e mais.',
-      s2t: 'Instalação do Windows',
-      s2d: 'Instalação limpa, atualizações do sistema e configuração completa do ambiente.',
+      s1d: 'Sites e aplicações sob medida: ser encontrado e receber mensagens no WhatsApp sem se perder na parte técnica.',
+      s2t: 'Windows / Linux e Office',
+      s2d: 'Instalação de Windows e Linux, pacotes do Microsoft Office e mais. Atualizações e configuração do ambiente.',
       s3t: 'Limpeza de sistemas',
-      s3d: 'Otimização, remoção de malware e melhor desempenho do seu equipamento.',
+      s3d: 'Otimização e limpeza para o PC aguentar o dia a dia do negócio ou do estúdio.',
       s4t: 'Administração de TI',
-      s4d: 'Gestão e melhoria de sistemas existentes. Suporte contínuo e manutenção preventiva.',
+      s4d: 'Suporte e manutenção para o negócio não parar por falhas de sistema.',
       s5t: 'Soluções com IA',
-      s5d: 'Automações, chatbots, otimização de processos e ferramentas de IA para o seu negócio.',
+      s5d: 'Automações e chatbots para o que é repetitivo—mais tempo para o que importa.',
       contactTitle: 'Contato',
+      contactHint: 'Na primeira mensagem, diga o nome do negócio e a região; se quiser, o que você precisa.',
       qrLabel: '📲 Contato rápido',
       qrH: 'Escaneie para falar comigo',
       qrP: 'O QR abre o WhatsApp direto. Imprima em cartões ou cartazes para os clientes entrarem em contato na hora.',
